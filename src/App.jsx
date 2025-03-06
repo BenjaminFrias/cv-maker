@@ -1,10 +1,10 @@
 // import { useState } from 'react'
 import './App.css'
-import './components/InputPage'
+import InputPage from './components/InputPage';
 
 function App() {
   return (
-    <InputPage></InputPage>
+    <InputPage/>
   )
 }
 

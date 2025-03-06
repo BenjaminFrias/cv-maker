@@ -1,4 +1,4 @@
-import "./InputField"
+import InputField from "./InputField";
 
 function GeneralInfoInputs() {
 	return (
