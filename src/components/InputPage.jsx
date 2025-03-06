@@ -17,3 +17,5 @@ function InputPage() {
       </form>
     )
   }
+
+export default InputPage;
