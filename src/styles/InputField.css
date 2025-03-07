@@ -1,0 +1,14 @@
+.input-field {
+	flex: 1;
+	height: 45px;
+	padding-left: 15px;
+	border-radius: 5px;
+	border: none;
+	background: none;
+	color: var(--font-color);
+	outline: 2px solid var(--complementary-bg-color);
+}
+
+.input-field:focus {
+	outline: 2px solid var(--secondary-color);
+}
