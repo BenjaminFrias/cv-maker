@@ -1,26 +1,12 @@
-import InputSection from "./InputSection"
-import GeneralInfoInputs from "./GeneralInfoInputs"
-import EducationalInputs from "./EducationalInputs"
-import PracticalInputs from "./PracticalInputs"
-import SubmitBtn from "./SubmitBtn"
+import Form from "./Form";
+import "../styles/InputPage.css"
 
 function InputPage() {
     return (
-      <form>
-          <InputSection title={"General information"}>
-            <GeneralInfoInputs/>
-          </InputSection>
-  
-          <InputSection title={"Educational experience"}>
-            <EducationalInputs/>
-          </InputSection>
-          
-          <InputSection title={"Practical experience"}>
-            <PracticalInputs/>
-          </InputSection>
-  
-          <SubmitBtn/>
-      </form>
+      <div className="input-page-container">
+        <h1>Create your CV!</h1>
+        <Form/>
+      </div>
     )
   }
 
