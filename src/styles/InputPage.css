@@ -1,0 +1,18 @@
+.input-page-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	border-radius: 20px;
+	padding: 35px 20px 45px 0px;
+	background: var(--bg-color);
+	box-shadow: rgba(109, 109, 151, 0.2) 0px 30px 60px -12px inset,
+		rgba(123, 123, 170, 0.3) 0px 18px 36px -18px inset,
+		rgba(38, 38, 43, 0.6) 0px 7px 25px 5px;
+}
+
+h1 {
+	font-weight: 600;
+	color: var(--font-color);
+	font-size: clamp(1.3rem, 5vw + 1rem, 3.5rem);
+}
