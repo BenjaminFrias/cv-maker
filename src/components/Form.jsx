@@ -3,6 +3,7 @@ import GeneralInfoInputs from "./GeneralInfoInputs"
 import EducationalInputs from "./EducationalInputs"
 import PracticalInputs from "./PracticalInputs"
 import SubmitBtn from "./SubmitBtn"
+import "../styles/Form.css"
 
 function Form() {
     return <form className="cv-form">
