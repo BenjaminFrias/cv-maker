@@ -4,7 +4,7 @@ function InputSection({title, children}) {
 	return (
 		<div className="input-section">
 		<h2>{title}</h2>
-		{children}
+			{children}
 		<hr />
 		</div>
 	)
