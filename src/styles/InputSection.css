@@ -10,6 +10,13 @@
 	gap: 15px;
 }
 
+/* Practical exp div */
+.input-section > div > div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
 .input-section h2 {
 	font-weight: 500;
 	font-size: 1.4rem;
