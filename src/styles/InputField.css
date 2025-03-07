@@ -12,3 +12,9 @@
 .input-field:focus {
 	outline: 2px solid var(--secondary-color);
 }
+
+/* WORK EXP DATE CONTAINER */
+.from-until-container {
+	display: flex;
+	gap: 15px;
+}
