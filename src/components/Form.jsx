@@ -33,8 +33,11 @@ const handleAddPracSection = () => {
     </InputSection>,]);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
 
-  return <form className="cv-form">
+  return <form className="cv-form" onSubmit={handleSubmit}>
     <InputSection title={"General information"}>
       <GeneralInfoInputs/>
     </InputSection>
