@@ -1,0 +1,22 @@
+:root {
+	--green: #70c021;
+}
+
+.show-page-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.show-page-container > h2 {
+	color: var(--font-color);
+	font-size: 5vw;
+	margin-bottom: 30px;
+}
+
+.show-page-container > svg {
+	width: 100px;
+	height: 100px;
+	fill: var(--green);
+}
