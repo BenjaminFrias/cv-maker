@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import { useState } from 'react';
 import './App.css'
-
+import ShowPage from './components/ShowPage';
 import InputPage from './components/InputPage';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   if (currentPage === "editPage") {
     return <InputPage handlePageChangeClick={() => togglePage("showPage")}/>
   } else if (currentPage === "showPage") {
-    return <h1>Complete cv</h1>
+    return <ShowPage/>
   }
 }
 
