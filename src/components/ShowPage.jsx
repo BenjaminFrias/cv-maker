@@ -8,6 +8,7 @@ function ShowPage() {
 			<CompleteIcon/>
 			<h2>Here's your CV!</h2>
 			<CvResult/>
+			<button type="button" className="edit-cv-btn">Edit CV</button>
 		</div>
 	)
 }

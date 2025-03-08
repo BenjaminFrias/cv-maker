@@ -20,3 +20,24 @@
 	height: 100px;
 	fill: var(--green);
 }
+
+/* EDIT BTN */
+
+.edit-cv-btn {
+	background: none;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 30px;
+	width: 100%;
+	border: none;
+	color: var(--font-color);
+	font-weight: 600;
+	font-size: 1.1rem;
+	outline: 2px solid var(--secondary-color);
+	transition: all 200ms ease;
+}
+
+.edit-cv-btn:hover {
+	background-color: var(--secondary-color);
+	transition: all 200ms ease;
+}

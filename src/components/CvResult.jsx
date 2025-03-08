@@ -41,8 +41,6 @@ function CvResult() {
             </div>
             <hr/>
         </div>
-
-        <button type="button">Edit CV</button>
     </>
 }
 
