@@ -7,7 +7,7 @@ import "../styles/Form.css"
 import { useState } from "react"
 
 
-function Form() {
+function Form({handlePageChangeClick}) {
 
   // Educational sections states
   const [eduSections, setEduSections] = useState([<InputSection title={"Educational information"} key={`edu-${Date.now()}-0`}>
@@ -52,7 +52,7 @@ const handleAddPracSection = () => {
       Add Practical Experience
     </button>
 
-    <SubmitBtn/>
+    <SubmitBtn submitHandler={handlePageChangeClick}/>
   </form>
   }
 
