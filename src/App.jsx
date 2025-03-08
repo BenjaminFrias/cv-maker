@@ -15,7 +15,7 @@ function App() {
   if (currentPage === "editPage") {
     return <InputPage handlePageChangeClick={() => togglePage("showPage")}/>
   } else if (currentPage === "showPage") {
-    return <ShowPage/>
+    return <ShowPage handlePageChangeClick={() => togglePage("editPage")}/>
   }
 }
 
