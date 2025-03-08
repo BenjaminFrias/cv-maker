@@ -9,7 +9,10 @@
 	background: white;
 	width: 100%;
 	padding: 40px 25px;
-	box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 25px;
+	box-shadow: rgba(149, 27, 231, 0.2) 0px 30px 60px -12px inset,
+		rgba(123, 123, 170, 0.3) 0px 18px 36px -18px inset,
+		rgba(0, 0, 0, 0.4) 0px 5px 25px;
+	border-radius: 10px;
 }
 
 /* HR */
