@@ -3,6 +3,7 @@ import GeneralInfoInputs from "./GeneralInfoInputs"
 import EducationalInputs from "./EducationalInputs"
 import PracticalInputs from "./PracticalInputs"
 import SubmitBtn from "./SubmitBtn"
+import PlusCircleIcon from "../assets/PlusCircleIcon"
 import "../styles/Form.css"
 import { useState } from "react"
 
@@ -19,14 +20,14 @@ const handleAddEduSection = () => {
   setEduSections([...eduSections, <InputSection title={"Educational information"} key={newKey}>
       <EducationalInputs/>
     </InputSection>,]);
-  };
+};
   
-  // Educational sections states
+  // Practical sections states
   const [pracSections, setPracSections] = useState([<InputSection title={"Practical information"} key={`prac-${Date.now()}-0`}>
     <PracticalInputs/>
   </InputSection>,]);
 
-const handleAddPracSection = () => {
+  const handleAddPracSection = () => {
     const newKey = `prac-${Date.now()}-${pracSections.length}`;
     setPracSections([...pracSections, <InputSection title={"Practical information"} key={newKey}>
       <PracticalInputs/>
@@ -43,17 +44,19 @@ const handleAddPracSection = () => {
     </InputSection>
 
     {eduSections.map(sec => sec)}
-    <button type="button" onClick={handleAddEduSection}>
+    <button type="button" className="add-section-btn" onClick={handleAddEduSection}>
+      <PlusCircleIcon/>
       Add educational Experience
     </button>
     
     {pracSections.map(sec => sec)}
-    <button type="button" onClick={handleAddPracSection}>
+    <button type="button" className="add-section-btn" onClick={handleAddPracSection}>
+      <PlusCircleIcon/>
       Add Practical Experience
     </button>
 
     <SubmitBtn submitHandler={handlePageChangeClick}/>
   </form>
-  }
+}
 
-  export default Form;
+export default Form;

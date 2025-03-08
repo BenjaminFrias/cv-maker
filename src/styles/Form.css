@@ -3,3 +3,29 @@
 	flex-direction: column;
 	gap: 25px;
 }
+
+.add-section-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	background: var(--secondary-color);
+	outline: 0px solid var(--secondary-color);
+	border: 0px;
+	border-radius: 6px;
+	color: var(--font-color);
+	padding: 6px 0px;
+	font-weight: 400;
+	transition: background-color 200ms ease;
+}
+
+.add-section-btn:hover {
+	background: none;
+	outline: 2px solid var(--secondary-color);
+	transition: background-color 200ms ease;
+}
+
+.add-section-btn > svg {
+	width: 20px;
+	height: 20px;
+}
