@@ -1,0 +1,72 @@
+:root {
+	--gray: rgb(119, 119, 119);
+}
+
+.cv-result {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	background: white;
+	width: 100%;
+	padding: 40px 25px;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 25px;
+}
+
+/* HR */
+.cv-result hr {
+	border: none;
+	border-bottom: 2px solid #e7e7e7;
+}
+
+/* General section */
+.cv-result > h2.name {
+	font-size: 3rem;
+	text-align: center;
+	font-weight: 800;
+	color: var(--secondary-color);
+}
+
+.general-info-container {
+	display: flex;
+	gap: 15px;
+	justify-content: center;
+	font-weight: 500;
+	color: var(--gray);
+}
+
+/* SECTION */
+
+.section-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.section-container > h2 {
+	color: black;
+}
+
+.section-container h3 {
+	color: var(--secondary-color);
+	font-style: italic;
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin: 5px 0px;
+}
+
+.section-container p {
+	position: relative;
+	left: 13px;
+}
+
+.section-container p::before {
+	content: "";
+	position: absolute;
+	left: -13px;
+	top: 10px;
+	height: 6px;
+	width: 6px;
+	border: 1px solid #eec9e6;
+	border-width: 2px 2px 0 0;
+	transform: rotate(45deg);
+}
