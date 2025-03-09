@@ -8,7 +8,7 @@ import "../styles/Form.css"
 import { useState } from "react"
 
 
-function Form({handlePageChangeClick}) {
+function Form({handlePageChangeClick, handleIsValidForm}) {
 
   // Educational sections states
   const [eduSections, setEduSections] = useState([<InputSection title={"Educational information"} key={`edu-${Date.now()}-0`}>
@@ -36,6 +36,18 @@ const handleAddEduSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const inputs = document.querySelectorAll(".input-field");
+
+    let isValid = Array.from(inputs).every(input => input.value.trim());
+
+    if (isValid) {
+      handleIsValidForm();
+    } else {
+      alert("Please fill all the required inputs")
+      
+    }
+    
   }
 
   return <form className="cv-form" onSubmit={handleSubmit}>
