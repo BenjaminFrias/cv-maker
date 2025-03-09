@@ -8,7 +8,7 @@ import "../styles/Form.css"
 import { useState } from "react"
 
 
-function Form({handlePageChangeClick, handleIsValidForm}) {
+function Form({handlePageChangeClick, handleIsValidForm, handleInputValues}) {
 
   // Educational sections states
   const [eduSections, setEduSections] = useState([<InputSection title={"Educational information"} key={`edu-${Date.now()}-0`}>
@@ -38,14 +38,17 @@ const handleAddEduSection = () => {
     e.preventDefault();
 
     const inputs = document.querySelectorAll(".input-field");
-
-    let isValid = Array.from(inputs).every(input => input.value.trim());
-
+    
+    let isValid = [...inputs].every(input => input.value.trim());
+    
     if (isValid) {
-      handleIsValidForm();
-    } else {
-      alert("Please fill all the required inputs")
+      handleInputValues([...inputs])
+      handleIsValidForm(true);
       
+      // Change page if values are valid
+      handlePageChangeClick();
+    } else {
+      alert("Please fill all the required inputs");
     }
     
   }
@@ -67,7 +70,7 @@ const handleAddEduSection = () => {
       Add Practical Experience
     </button>
 
-    <SubmitBtn submitHandler={handlePageChangeClick}/>
+    <SubmitBtn/>
   </form>
 }
 

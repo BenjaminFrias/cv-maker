@@ -10,17 +10,27 @@ function App() {
     }  
   }
 
-  const handleIsValidForm = () => {
-    setIsFormValid(true)
+  
+  const [inputValues, setinputValues] = useState(["heo"]);
+  
+  const handleInputValues = (inputs) => {
+    setinputValues(inputs);
   }
-
+  
   const [isFormValid, setIsFormValid] = useState(false);
   const [currentPage, setCurrentPage] = useState("editPage");
+  
+  const handleIsValidForm = (isValid) => {
+    setIsFormValid(isValid)
+  }
 
   if (currentPage === "editPage") {
-    return <InputPage handlePageChangeClick={() => togglePage("showPage")} handleIsValidForm={() => handleIsValidForm(true)}/>
+    return <InputPage 
+      handlePageChangeClick={() => togglePage("showPage")} handleIsValidForm={handleIsValidForm}
+      handleInputValues={handleInputValues}
+    />
   } else if (currentPage === "showPage") {
-    return <ShowPage handlePageChangeClick={() => togglePage("editPage")}/>
+    return <ShowPage handlePageChangeClick={() => togglePage("editPage")} inputValues={inputValues}/>
   }
 }
 
