@@ -11,7 +11,7 @@ function App() {
   }
 
   
-  const [inputValues, setinputValues] = useState(["heo"]);
+  const [inputValues, setinputValues] = useState([]);
   
   const handleInputValues = (inputs) => {
     setinputValues(inputs);

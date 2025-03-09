@@ -7,8 +7,7 @@ function ShowPage({handlePageChangeClick, inputValues}) {
 		<div className="show-page-container">
 			<CompleteIcon/>
 			<h2>Here's your CV!</h2>
-			{/* <CvResult/> */}
-			{console.log(inputValues)}
+			<CvResult inputValues={inputValues}/>
 			<button type="button" className="edit-cv-btn" onClick={() => handlePageChangeClick("editPage")}>Edit CV</button>
 		</div>
 	)

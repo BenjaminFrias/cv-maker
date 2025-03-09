@@ -37,12 +37,21 @@ const handleAddEduSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const inputs = document.querySelectorAll(".input-field");
+    const inputs = [...document.querySelectorAll(".input-field")];
     
-    let isValid = [...inputs].every(input => input.value.trim());
+    let isValid = inputs.every(input => input.value.trim());
     
     if (isValid) {
-      handleInputValues([...inputs])
+      // object with input name as key / value of the input as value
+      const inputsObj = {};
+      
+      // Add every input to input objects
+      inputs.forEach(input => {
+        inputsObj[input.dataset.name] = input.value.trim();
+      });
+
+      handleInputValues(inputsObj)
+    
       handleIsValidForm(true);
       
       // Change page if values are valid

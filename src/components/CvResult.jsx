@@ -1,9 +1,10 @@
 import "../styles/CvResult.css"
 
-function CvResult() {
+function CvResult({inputValues}) {
+    
     return <>
         <div className="cv-result">
-            <h2 className="name">Carles Puyol Saforcada</h2>
+            <h2 className="name">{inputValues["fullName"]}</h2>
             <div className="general-info-container">
                 <p className="email">contact@carlespuyol.com</p>
                 <p>|</p>
