@@ -8,8 +8,8 @@ function PracticalInputs() {
         <InputField placeholder={"Position title:"} type={"text"} inputName={"position"}/>
         <InputField placeholder={"Main responsabilities of the job:"} type={"text"} inputName={"responsabilities"}/>
         <div className="from-until-container">
-          <InputField placeholder={"From:"} type={"date"} inputName={"FromDate"}/>
-          <InputField placeholder={"Until:"} type={"date"} inputName={"UntilDate"}/>
+          <InputField placeholder={"From:"} type={"date"} inputName={"fromDate"}/>
+          <InputField placeholder={"Until:"} type={"date"} inputName={"untilDate"}/>
         </div>
       </div>
     </div>

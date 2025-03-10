@@ -4,17 +4,18 @@ import ShowPage from './components/ShowPage';
 import InputPage from './components/InputPage';
 
 function App() {
-  const togglePage = (page) => {    
+  const togglePage = (page) => {
     if (isFormValid) {
       setCurrentPage(page);
     }  
   }
-
   
   const [inputValues, setinputValues] = useState([]);
   
-  const handleInputValues = (inputs) => {
-    setinputValues(inputs);
+  const handleInputValues = (inputValues) => {
+    setinputValues(inputValues);
+    console.log(inputValues);
+    
   }
   
   const [isFormValid, setIsFormValid] = useState(false);

@@ -1,48 +1,59 @@
 import "../styles/CvResult.css"
 
+function EducationalInfo({schoolName, titleStudy, dateStudy}) {
+    return (
+        <>
+        <div className="section-container">
+           <h2>Educational experience</h2>
+
+            <div className="section educational-section">
+                <h3 className="school-name">{schoolName}</h3>
+                <p className="title-of-study">{titleStudy}</p>
+                <p className="date">{dateStudy}</p>
+            </div>
+        </div>
+        <hr/>   
+        </>
+    )
+}
+
+function PracticalInfo({companyName, position, responsabilities, fromDate, untilDate}) {
+    return <>
+        <div className="section-container">
+            <h2>Practical experience</h2>
+
+            <div className="section practical-section">
+                <h3 className="company-name">{companyName}</h3>
+                <p className="position-title">{position}</p>
+                <p className="main-responsabilities">{responsabilities}</p>
+                <p className="date"><span className="from">{fromDate}</span> - <span className="until">{untilDate}</span></p>
+            </div>
+        </div>
+        <hr/>
+    </>
+}
+
 function CvResult({inputValues}) {
-    
+
     return <>
         <div className="cv-result">
-            <h2 className="name">{inputValues["fullName"]}</h2>
+            <h2 className="name">{inputValues.fullName}</h2>
             <div className="general-info-container">
-                <p className="email">contact@carlespuyol.com</p>
+                <p className="email">{inputValues.email}</p>
                 <p>|</p>
-                <p className="phone">917572XXXX</p>
+                <p className="phone">{inputValues.phone}</p>
             </div>
             <hr/>
 
-            <div className="section-container">
-                <h2>Educational experience</h2>
-
-                <div className="section educational-section">
-                    <h3 className="school-name">La Masia</h3>
-                    <p className="title-of-study">Canterano</p>
-                    <p className="date">2 de octubre de 1999</p>
-                </div>
-            </div>
-            <hr/>
-
-            <div className="section-container">
-                <h2>Practical experience</h2>
-
-                <div className="section practical-section">
-                    <h3 className="company-name">Fútbol Club Barcelona "B"</h3>
-                    <p className="position-title">Lateral derecho</p>
-                    <p className="main-responsabilities">Defender y atacar</p>
-                    <p className="date">13/04/1995 - 23/10/1996</p>
-                </div>
-
-                <div className="section practical-section">
-                    <h3 className="company-name">Barcelona F.C</h3>
-                    <p className="position-title">Defensor central</p>
-                    <p className="main-responsabilities">Defender y capitan</p>
-                    <p className="date">02/10/1999 - 04/03/2014</p>
-                </div>
-            </div>
-            <hr/>
+            <EducationalInfo schoolName={inputValues.schoolName} titleStudy={inputValues.titleStudy} dateStudy={inputValues.dateStudy}/>
+            
+            <PracticalInfo companyName={inputValues.companyName} position={inputValues.position}
+            responsabilities={inputValues.responsabilities} fromDate={inputValues.fromDate} untilDate={inputValues.untilDate}/>
+            
+            
         </div>
     </>
 }
+
 
 export default CvResult;
