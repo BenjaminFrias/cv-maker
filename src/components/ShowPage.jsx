@@ -3,10 +3,7 @@ import CvResult from "./CvResult";
 import CompleteIcon from "../assets/CompleteIcon.jsx";
 
 function ShowPage({handlePageChangeClick, inputValues}) {
-	console.log(inputValues);
 	return (
-		// TODO: Use new object and display values correctly
-		
 		<div className="show-page-container">
 			<CompleteIcon/>
 			<h2>Here's your CV!</h2>
