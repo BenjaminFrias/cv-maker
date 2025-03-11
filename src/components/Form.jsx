@@ -1,18 +1,10 @@
 import InputSection from "./InputSection"
 import GeneralInfoInputs from "./GeneralInfoInputs"
-import EducationalInputs from "./EducationalInputs"
-import PracticalInputs from "./PracticalInputs"
 import SubmitBtn from "./SubmitBtn"
 import PlusCircleIcon from "../assets/PlusCircleIcon"
 import "../styles/Form.css"
 
-function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, sectionHandlers}) {
-
-  // sectionsHandlers = {edu: [eduSection, setEduSection], prac: [pracSection, setPracSection]}
-  
-  // todo: lift the edu and prac sections elements to the app.jsx....
-  // Educational sections states
-
+function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues, sectionHandlers}) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -27,38 +19,31 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, sect
     let isValid = inputs.every(input => input.value.trim());
     
     if (isValid) {
-
-      const formValuesObj = {
-        general: {}, 
-        eduSections: {},
-        pracSections: {},
-      };
-
       generalValues.forEach(input => {
-        formValuesObj["general"][input.dataset.name] = input.value.trim();
+        inputValues["general"][input.dataset.name] = input.value.trim();
       })
 
       eduSectionsElems.forEach((section, index) => {
         const eduInputs = [...section.querySelectorAll(".input-field")];
 
-        formValuesObj["eduSections"][index] = {};
+        inputValues["eduSections"][index] = {};
         
         eduInputs.forEach(input => {
-          formValuesObj["eduSections"][index][input.dataset.name] = input.value.trim();
+          inputValues["eduSections"][index][input.dataset.name] = input.value.trim();
         })
       })
 
       pracSectionsElems.forEach((section, index) => {
         const pracInputs = [...section.querySelectorAll(".input-field")];
 
-        formValuesObj["pracSections"][index] = {};
+        inputValues["pracSections"][index] = {};
         
         pracInputs.forEach(input => {
-          formValuesObj["pracSections"][index][input.dataset.name] = input.value.trim();
+          inputValues["pracSections"][index][input.dataset.name] = input.value.trim();
         })
       })
 
-      handleInputValues(formValuesObj);
+      handleInputValues(inputValues);
 
       handleIsValidForm(true);
       
