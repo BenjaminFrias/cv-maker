@@ -10,6 +10,7 @@ import { useState } from "react"
 
 function Form({handlePageChangeClick, handleIsValidForm, handleInputValues}) {
 
+  // todo: lift the edu and prac sections elements to the app.jsx....
   // Educational sections states
   const [eduSections, setEduSections] = useState([<InputSection title={"Educational information"} type="edu-section" key={`edu-${Date.now()}-0`}>
     <EducationalInputs/>
@@ -84,7 +85,7 @@ const handleAddEduSection = () => {
       handleIsValidForm(true);
       
       // Change page if values are valid
-      // handlePageChangeClick();
+      handlePageChangeClick();
     } else {
       alert("Please fill all the required inputs");
     }
