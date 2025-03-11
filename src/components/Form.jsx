@@ -5,35 +5,13 @@ import PracticalInputs from "./PracticalInputs"
 import SubmitBtn from "./SubmitBtn"
 import PlusCircleIcon from "../assets/PlusCircleIcon"
 import "../styles/Form.css"
-import { useState } from "react"
 
+function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, sectionHandlers}) {
 
-function Form({handlePageChangeClick, handleIsValidForm, handleInputValues}) {
-
+  // sectionsHandlers = {edu: [eduSection, setEduSection], prac: [pracSection, setPracSection]}
+  
   // todo: lift the edu and prac sections elements to the app.jsx....
   // Educational sections states
-  const [eduSections, setEduSections] = useState([<InputSection title={"Educational information"} type="edu-section" key={`edu-${Date.now()}-0`}>
-    <EducationalInputs/>
-  </InputSection>,]);
-
-const handleAddEduSection = () => {
-  const newKey = `edu-${Date.now()}-${eduSections.length}`;
-  setEduSections([...eduSections, <InputSection title={"Educational information"} type="edu-section" key={newKey}>
-      <EducationalInputs />
-    </InputSection>,]);
-};
-  
-  // Practical sections states
-  const [pracSections, setPracSections] = useState([<InputSection title={"Practical information"} type="prac-section" key={`prac-${Date.now()}-0`}>
-    <PracticalInputs/>
-  </InputSection>,]);
-
-  const handleAddPracSection = () => {
-    const newKey = `prac-${Date.now()}-${pracSections.length}`;
-    setPracSections([...pracSections, <InputSection title={"Practical information"} type="prac-section" key={newKey}>
-      <PracticalInputs/>
-    </InputSection>,]);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,14 +75,14 @@ const handleAddEduSection = () => {
       <GeneralInfoInputs />
     </InputSection>
 
-    {eduSections.map(sec => sec)}
-    <button type="button" className="add-section-btn" onClick={handleAddEduSection}>
+    {sectionHandlers.eduSections.map(sec => sec)}
+    <button type="button" className="add-section-btn" onClick={sectionHandlers.handleAddEduSection}>
       <PlusCircleIcon/>
       Add educational Experience
     </button>
     
-    {pracSections.map(sec => sec)}
-    <button type="button" className="add-section-btn" onClick={handleAddPracSection}>
+    {sectionHandlers.pracSections.map(sec => sec)}
+    <button type="button" className="add-section-btn" onClick={sectionHandlers.handleAddPracSection}>
       <PlusCircleIcon/>
       Add Practical Experience
     </button>
