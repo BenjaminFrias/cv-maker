@@ -8,6 +8,7 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    
     // Get general, educational, practical inputs and add them in the inputsValues obj
     const generalValues = [...document.querySelectorAll("div.input-section.general-section > div > .input-field")];
     const eduSectionsElems = [...document.querySelectorAll("div.input-section.edu-section > div")];
@@ -54,10 +55,10 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
     }
     
   }
-
+  
   return <form className="cv-form" onSubmit={handleSubmit}>
     <InputSection title={"General information"} type="general-section">
-      <GeneralInfoInputs />
+      <GeneralInfoInputs inputValues={inputValues} handleInputValues={handleInputValues}/>
     </InputSection>
 
     {sectionHandlers.eduSections.map(sec => sec)}

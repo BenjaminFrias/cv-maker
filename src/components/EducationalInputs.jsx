@@ -1,6 +1,6 @@
 import InputField from "./InputField";
 
-function EducationalInputs() {
+function EducationalInputs({defaultValues = null}) {
 	return (
 			<div>
 				<InputField placeholder={"School name:"} type={"text"} inputName={"schoolName"}/>

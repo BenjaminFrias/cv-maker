@@ -7,17 +7,21 @@ import EducationalInputs from "./components/EducationalInputs"
 import PracticalInputs from "./components/PracticalInputs"
 
 function App() {
-  // todo: pass input values to input page to: 1. create the sections 2. paste existing values in inputs
+  // todo: paste existing values in InputPage's inputs
   const togglePage = (page) => {
     if (isFormValid) {
       setCurrentPage(page);
     }  
   }
   
-  const [inputValues, setinputValues] = useState([]);
-  
+  const [inputValues, setinputValues] = useState({
+    general: {}, 
+    eduSections: {},
+    pracSections: {},
+  });
+
   const handleInputValues = (inputValues) => {
-    setinputValues(inputValues);    
+    setinputValues(inputValues); 
   }  
   
   const [isFormValid, setIsFormValid] = useState(false);
@@ -29,13 +33,15 @@ function App() {
 
   // Sections input elements states
   const [eduSections, setEduSections] = useState([<InputSection title={"Educational information"} type="edu-section" key={`edu-${Date.now()}-0`}>
-    <EducationalInputs/>
+    <EducationalInputs eduValues={inputValues.eduSections[0]}/>
   </InputSection>,]);
 
   const handleAddEduSection = () => {
   const newKey = `edu-${Date.now()}-${eduSections.length}`;
+  const valueIndex = eduSections.length - 1;
+  
   setEduSections([...eduSections, <InputSection title={"Educational information"} type="edu-section" key={newKey}>
-      <EducationalInputs />
+      <EducationalInputs eduValues={inputValues.eduSections[valueIndex]}/>
     </InputSection>,]);
   };
   
@@ -56,12 +62,12 @@ function App() {
     eduSections: eduSections,
     handleAddPracSection: handleAddPracSection,
     pracSections: pracSections,
-  }
+  }  
 
   if (currentPage === "editPage") {
     return <InputPage 
       handlePageChangeClick={() => togglePage("showPage")} handleIsValidForm={handleIsValidForm}
-      handleInputValues={handleInputValues} sectionHandlers={sectionHandlers}
+      handleInputValues={handleInputValues} inputValues={inputValues} sectionHandlers={sectionHandlers}
     />
   } else if (currentPage === "showPage") {
     return <ShowPage handlePageChangeClick={() => togglePage("editPage")} inputValues={inputValues}/>

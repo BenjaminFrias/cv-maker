@@ -1,11 +1,11 @@
 import InputField from "./InputField";
 
-function GeneralInfoInputs() {
+function GeneralInfoInputs({inputValues, handleInputValues}) {
 	return (
 		<div>
-			<InputField placeholder={"Full name:"} type={"text"} inputName={"fullName"}/>
-			<InputField placeholder={"Email:"} type={"email"} inputName={"email"}/>
-			<InputField placeholder={"Phone:"} type={"text"} inputName={"phone"}/>
+			<InputField section={"general"} inputValues={inputValues} setInputValue={handleInputValues}  placeholder={"Full name:"} type={"text"} inputName={"fullName"}/>
+			<InputField section={"general"} inputValues={inputValues} setInputValue={handleInputValues} placeholder={"Email:"} type={"email"} inputName={"email"}/>
+			<InputField section={"general"} inputValues={inputValues} setInputValue={handleInputValues} placeholder={"Phone:"} type={"text"} inputName={"phone"}/>
 		</div>
 	)
 }

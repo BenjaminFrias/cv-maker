@@ -1,13 +1,13 @@
 import Form from "./Form";
 import "../styles/InputPage.css"
 
-function InputPage({handlePageChangeClick, handleIsValidForm, handleInputValues, sectionHandlers}) {
+function InputPage({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues, sectionHandlers}) {
 
     return (
       <div className="input-page-container">
         <h1>Create your CV!</h1>
         <Form handlePageChangeClick={handlePageChangeClick} handleIsValidForm={handleIsValidForm}
-          handleInputValues={handleInputValues} sectionHandlers={sectionHandlers}
+          handleInputValues={handleInputValues} inputValues={inputValues} sectionHandlers={sectionHandlers}
         />
       </div>
     )
