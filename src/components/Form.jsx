@@ -8,9 +8,8 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
     // Get general, educational, practical inputs and add them in the inputsValues obj
-    const generalValues = [...document.querySelectorAll("div.input-section.general-section > div > .input-field")];
+    const generalInputs = [...document.querySelectorAll("div.input-section.general-section > div > .input-field")];
     const eduSectionsElems = [...document.querySelectorAll("div.input-section.edu-section > div")];
     const pracSectionsElems = [...document.querySelectorAll("div.input-section.prac-section > div")];
   
@@ -20,31 +19,31 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
     let isValid = inputs.every(input => input.value.trim());
     
     if (isValid) {
-      generalValues.forEach(input => {
-        inputValues["general"][input.dataset.name] = input.value.trim();
-      })
+      // generalInputs.forEach(input => {
+      //   inputValues["general"][input.dataset.name] = input.value.trim();
+      // })
 
-      eduSectionsElems.forEach((section, index) => {
-        const eduInputs = [...section.querySelectorAll(".input-field")];
+      // eduSectionsElems.forEach((section, index) => {
+      //   const eduInputs = [...section.querySelectorAll(".input-field")];
 
-        inputValues["eduSections"][index] = {};
+      //   inputValues["eduSections"][index] = {};
         
-        eduInputs.forEach(input => {
-          inputValues["eduSections"][index][input.dataset.name] = input.value.trim();
-        })
-      })
+      //   eduInputs.forEach(input => {
+      //     inputValues["eduSections"][index][input.dataset.name] = input.value.trim();
+      //   })
+      // })
 
-      pracSectionsElems.forEach((section, index) => {
-        const pracInputs = [...section.querySelectorAll(".input-field")];
+      // pracSectionsElems.forEach((section, index) => {
+      //   const pracInputs = [...section.querySelectorAll(".input-field")];
 
-        inputValues["pracSections"][index] = {};
+      //   inputValues["pracSections"][index] = {};
         
-        pracInputs.forEach(input => {
-          inputValues["pracSections"][index][input.dataset.name] = input.value.trim();
-        })
-      })
+      //   pracInputs.forEach(input => {
+      //     inputValues["pracSections"][index][input.dataset.name] = input.value.trim();
+      //   })
+      // })
 
-      handleInputValues(inputValues);
+      // handleInputValues(inputValues);
 
       handleIsValidForm(true);
       
@@ -52,8 +51,7 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
       handlePageChangeClick();
     } else {
       alert("Please fill all the required inputs");
-    }
-    
+    }    
   }
   
   return <form className="cv-form" onSubmit={handleSubmit}>

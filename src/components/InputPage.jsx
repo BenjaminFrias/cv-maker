@@ -1,7 +1,7 @@
 import Form from "./Form";
 import "../styles/InputPage.css"
 
-function InputPage({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues, sectionHandlers}) {
+function InputPage({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues, sectionHandlers,}) {
 
     return (
       <div className="input-page-container">
