@@ -29,3 +29,37 @@
 	width: 20px;
 	height: 20px;
 }
+
+/* Input sections */
+
+.input-section {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.input-section > div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+/* Practical exp div */
+.input-section > div > div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.input-section h2 {
+	font-weight: 500;
+	font-size: 1.4rem;
+	margin-bottom: 10px;
+	color: var(--font-color);
+}
+
+.input-section hr {
+	margin-top: 15px;
+	border: 0px solid var(--complementary-bg-color);
+	border-bottom: 2px solid var(--complementary-bg-color);
+}

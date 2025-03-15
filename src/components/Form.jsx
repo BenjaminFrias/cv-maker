@@ -1,4 +1,3 @@
-import InputSection from "../components/InputSection"
 import EducationalInputs from "../components/EducationalInputs"
 import PracticalInputs from "../components/PracticalInputs"
 import GeneralInfoInputs from "../components/GeneralInfoInputs"
@@ -95,7 +94,7 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
 
       <button type="button" className="add-section-btn" onClick={handleAddEduSection}>
         <PlusCircleIcon key={"plusCircleIcon"}/>
-        Add educational Experience
+        Add Educational Experience
       </button>
 
       {pracElements.map((sec, index) => {
