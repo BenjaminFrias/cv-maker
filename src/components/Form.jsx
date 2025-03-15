@@ -10,7 +10,6 @@ function Form({handlePageChangeClick, handleInputValues, inputValues,}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Change page if values are valid
     handlePageChangeClick();
   }
 
