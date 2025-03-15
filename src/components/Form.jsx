@@ -5,6 +5,7 @@ import GeneralInfoInputs from "../components/GeneralInfoInputs"
 import SubmitBtn from "./SubmitBtn"
 import PlusCircleIcon from "../assets/PlusCircleIcon"
 import "../styles/Form.css"
+import { Fragment } from "react"
 
 function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues,}) {
   const handleSubmit = (e) => {
@@ -82,14 +83,14 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
         <hr />
       </div>
 
-      {eduElements.map(sec => {
-        return <>
+      {eduElements.map((sec, index) => {
+        return <Fragment key={index}>
           <div className={`input-section edu-section`}>
             <h2>Educational Experience</h2>
               {sec}
             <hr />
           </div>
-        </>  
+        </Fragment>  
       })}
 
       <button type="button" className="add-section-btn" onClick={handleAddEduSection}>
@@ -97,14 +98,14 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
         Add educational Experience
       </button>
 
-      {pracElements.map(sec => {
-        return <>
+      {pracElements.map((sec, index) => {
+        return <Fragment key={index}>
           <div className={`input-section edu-section`}>
             <h2>Practical Experience</h2>
               {sec}
             <hr />
           </div>
-        </>  
+        </Fragment>  
       })}
 
       <button type="button" className="add-section-btn" onClick={handleAddPracSection}>

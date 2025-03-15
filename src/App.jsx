@@ -20,8 +20,6 @@ function App() {
   const handleInputValues = (newValues) => {
     setinputValues(newValues); 
   }  
-
-  console.log(inputValues);
   
   const [isFormValid, setIsFormValid] = useState(false);
   const [currentPage, setCurrentPage] = useState("editPage");
