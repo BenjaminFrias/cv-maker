@@ -6,23 +6,12 @@ import PlusCircleIcon from "../assets/PlusCircleIcon"
 import "../styles/Form.css"
 import { Fragment } from "react"
 
-function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues,}) {
+function Form({handlePageChangeClick, handleInputValues, inputValues,}) {
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-    const inputs = [...document.querySelectorAll(".input-field")];  
-
-    // use isValid to prevent changing page with submit in App.jsx
-    let isValid = inputs.every(input => input.value.trim());
     
-    if (isValid) {
-      handleIsValidForm(true);
-      
-      // Change page if values are valid
-      handlePageChangeClick();
-    } else {
-      alert("Please fill all the required inputs");
-    }    
+    // Change page if values are valid
+    handlePageChangeClick();
   }
 
   const handleAddEduSection = () => {

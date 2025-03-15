@@ -6,9 +6,7 @@ import InputPage from './components/InputPage';
 function App() {
   // todo: paste existing values in InputPage's inputs
   const togglePage = (page) => {
-    if (isFormValid) {
-      setCurrentPage(page);
-    }  
+    setCurrentPage(page); 
   }
   
   const [inputValues, setinputValues] = useState({
@@ -21,16 +19,11 @@ function App() {
     setinputValues(newValues); 
   }  
   
-  const [isFormValid, setIsFormValid] = useState(false);
   const [currentPage, setCurrentPage] = useState("editPage");
   
-  const handleIsValidForm = (isValid) => {
-    setIsFormValid(isValid)
-  }
-
   if (currentPage === "editPage") {
     return <InputPage 
-      handlePageChangeClick={() => togglePage("showPage")} handleIsValidForm={handleIsValidForm}
+      handlePageChangeClick={() => togglePage("showPage")}
       handleInputValues={handleInputValues} inputValues={inputValues}
     />
   } else if (currentPage === "showPage") {
