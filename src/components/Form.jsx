@@ -9,11 +9,6 @@ import "../styles/Form.css"
 function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues,}) {
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Get general, educational, practical inputs and add them in the inputsValues obj
-    const generalInputs = [...document.querySelectorAll("div.input-section.general-section > div > .input-field")];
-    const eduSectionsElems = [...document.querySelectorAll("div.input-section.edu-section > div")];
-    const pracSectionsElems = [...document.querySelectorAll("div.input-section.prac-section > div")];
   
     const inputs = [...document.querySelectorAll(".input-field")];  
 
@@ -21,32 +16,6 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
     let isValid = inputs.every(input => input.value.trim());
     
     if (isValid) {
-      // generalInputs.forEach(input => {
-      //   inputValues["general"][input.dataset.name] = input.value.trim();
-      // })
-
-      // eduSectionsElems.forEach((section, index) => {
-      //   const eduInputs = [...section.querySelectorAll(".input-field")];
-
-      //   inputValues["eduSections"][index] = {};
-        
-      //   eduInputs.forEach(input => {
-      //     inputValues["eduSections"][index][input.dataset.name] = input.value.trim();
-      //   })
-      // })
-
-      // pracSectionsElems.forEach((section, index) => {
-      //   const pracInputs = [...section.querySelectorAll(".input-field")];
-
-      //   inputValues["pracSections"][index] = {};
-        
-      //   pracInputs.forEach(input => {
-      //     inputValues["pracSections"][index][input.dataset.name] = input.value.trim();
-      //   })
-      // })
-
-      // handleInputValues(inputValues);
-
       handleIsValidForm(true);
       
       // Change page if values are valid
@@ -79,6 +48,31 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
     )
   }));
 
+  const handleAddPracSection = () => {
+    const secIndex = Object.keys(inputValues.pracSections).length;
+    handleInputValues((prevValues) => (
+      {
+      ...prevValues,
+      ["pracSections"]: {
+        ...prevValues["pracSections"], 
+        [`sec${secIndex}`]: {
+          companyName: "",
+          position: "",
+          responsabilities: "",
+          fromDate: "",
+          untilDate: "",
+        },
+      }
+    }));
+  };
+
+  const pracElements = (Object.values(inputValues.pracSections).map((section, valueIndex) => {    
+    const newKey = Object.keys(inputValues.pracSections)[valueIndex];
+    return (
+      <PracticalInputs key={newKey} inputValues={inputValues} handleInputValues={handleInputValues} secIndex={valueIndex}/>
+    )
+  }));
+
   return <>
     <form className="cv-form" onSubmit={handleSubmit}>
 
@@ -91,7 +85,7 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
       {eduElements.map(sec => {
         return <>
           <div className={`input-section edu-section`}>
-            <h2>Educational Information</h2>
+            <h2>Educational Experience</h2>
               {sec}
             <hr />
           </div>
@@ -103,7 +97,22 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
         Add educational Experience
       </button>
 
-      <SubmitBtn/>
+      {pracElements.map(sec => {
+        return <>
+          <div className={`input-section edu-section`}>
+            <h2>Practical Experience</h2>
+              {sec}
+            <hr />
+          </div>
+        </>  
+      })}
+
+      <button type="button" className="add-section-btn" onClick={handleAddPracSection}>
+        <PlusCircleIcon key={"plusCircleIcon2"}/>
+        Add Practical Experience
+      </button>
+
+      <SubmitBtn key={"submitForm"}/>
     </form>
   </>
 }

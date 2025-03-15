@@ -1,15 +1,23 @@
 import InputField from "./InputField";
 
-function PracticalInputs() {
+function PracticalInputs({inputValues, handleInputValues, secIndex}) {
   return (
     <div>
       <div>
-        <InputField placeholder={"Company Name:"} type={"text"} inputName={"companyName"}/>
-        <InputField placeholder={"Position title:"} type={"text"} inputName={"position"}/>
-        <InputField placeholder={"Main responsabilities of the job:"} type={"text"} inputName={"responsabilities"}/>
+        <InputField section={"pracSections"} inputValues={inputValues} secIndex={secIndex}
+        setInputValue={handleInputValues} placeholder={"Company Name:"} type={"text"} inputName={"companyName"}/>
+        <InputField section={"pracSections"} inputValues={inputValues} secIndex={secIndex}
+        setInputValue={handleInputValues} placeholder={"Position:"} type={"text"} inputName={"position"}/>
+
+        <InputField section={"pracSections"} inputValues={inputValues} secIndex={secIndex}
+        setInputValue={handleInputValues} placeholder={"Responsabilities:"} type={"text"} inputName={"responsabilities"}/>
+
         <div className="from-until-container">
-          <InputField placeholder={"From:"} type={"date"} inputName={"fromDate"}/>
-          <InputField placeholder={"Until:"} type={"date"} inputName={"untilDate"}/>
+          <InputField section={"pracSections"} inputValues={inputValues} secIndex={secIndex}
+          setInputValue={handleInputValues} placeholder={"From:"} type={"date"} inputName={"fromDate"}/>
+
+          <InputField section={"pracSections"} inputValues={inputValues} secIndex={secIndex}
+          setInputValue={handleInputValues} placeholder={"Until:"} type={"date"} inputName={"untilDate"}/>
         </div>
       </div>
     </div>
