@@ -3,7 +3,7 @@ function EducationalInfoElem({schoolName, titleStudy, dateStudy}) {
         <>   
             <div className="section educational-section">
                 <h3 className="school-name">{schoolName}</h3>
-                <p classNamEleme="title-of-study">{titleStudy}</p>
+                <p className="title-of-study">{titleStudy}</p>
                 <p className="date">{dateStudy}</p>
             </div>
         </>
