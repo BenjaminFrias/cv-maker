@@ -1,5 +1,4 @@
 import "../styles/InputField.css"
-
 function InputField({type, section, secIndex, placeholder, inputName=undefined, inputValues=undefined, setInputValue}) {
   const handleChange = (e) => {
     if (section == "general") {
@@ -8,23 +7,23 @@ function InputField({type, section, secIndex, placeholder, inputName=undefined, 
       setInputValue((prevValues) => ({
         ...prevValues,
         [section]: {
-          ...prevValues[section],
-          [secIndex]: {
-            ...prevValues[section][secIndex],
-            [inputName]: e.target.value
-          }
+          ...prevValues[section], 
+          [`sec${secIndex}`]: {
+            ...prevValues[section][`sec${secIndex}`],
+            [inputName]: e.target.value,
+          },
         }
       }));
     }
   }
-
+  
   if (section == "general") {
     return <input type={type} placeholder={placeholder} 
     value={inputValues?.[section]?.[inputName] ?? ""} 
     onChange={handleChange} className="input-field" data-name={inputName} required></input>
   } else {
     return <input type={type} placeholder={placeholder} 
-    value={inputValues?.[section]?.[secIndex]?.[inputName] ?? ""} 
+    value={inputValues?.[section]?.[`sec${secIndex}`]?.[inputName] ?? ""} 
     onChange={handleChange} className="input-field" data-name={inputName} required></input>
   }
 }

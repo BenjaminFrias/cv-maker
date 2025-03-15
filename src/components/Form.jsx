@@ -1,10 +1,12 @@
-import InputSection from "./InputSection"
-import GeneralInfoInputs from "./GeneralInfoInputs"
+import InputSection from "../components/InputSection"
+import EducationalInputs from "../components/EducationalInputs"
+import PracticalInputs from "../components/PracticalInputs"
+import GeneralInfoInputs from "../components/GeneralInfoInputs"
 import SubmitBtn from "./SubmitBtn"
 import PlusCircleIcon from "../assets/PlusCircleIcon"
 import "../styles/Form.css"
 
-function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues, sectionHandlers}) {
+function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inputValues,}) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -53,26 +55,57 @@ function Form({handlePageChangeClick, handleIsValidForm, handleInputValues, inpu
       alert("Please fill all the required inputs");
     }    
   }
-  
-  return <form className="cv-form" onSubmit={handleSubmit}>
-    <InputSection title={"General information"} type="general-section">
-      <GeneralInfoInputs inputValues={inputValues} handleInputValues={handleInputValues}/>
-    </InputSection>
 
-    {sectionHandlers.eduSections.map(sec => sec)}
-    <button type="button" className="add-section-btn" onClick={sectionHandlers.handleAddEduSection}>
-      <PlusCircleIcon/>
-      Add educational Experience
-    </button>
-    
-    {sectionHandlers.pracSections.map(sec => sec)}
-    <button type="button" className="add-section-btn" onClick={sectionHandlers.handleAddPracSection}>
-      <PlusCircleIcon/>
-      Add Practical Experience
-    </button>
+  const handleAddEduSection = () => {
+    const secIndex = Object.keys(inputValues.eduSections).length;
+    handleInputValues((prevValues) => (
+      {
+      ...prevValues,
+      ["eduSections"]: {
+        ...prevValues["eduSections"], 
+        [`sec${secIndex}`]: {
+            titleStudy: "",
+            schoolName: "",
+            dateStudy: "",
+        },
+      }
+    }));
+  };
 
-    <SubmitBtn/>
-  </form>
+  const eduElements = (Object.values(inputValues.eduSections).map((section, valueIndex) => {    
+    const newKey = Object.keys(inputValues.eduSections)[valueIndex];
+    return (
+      <EducationalInputs key={newKey} inputValues={inputValues} handleInputValues={handleInputValues} secIndex={valueIndex}/>
+    )
+  }));
+
+  return <>
+    <form className="cv-form" onSubmit={handleSubmit}>
+
+      <div className={`input-section general-section`}>
+        <h2>General Information</h2>
+          <GeneralInfoInputs key={"generalInputs"} inputValues={inputValues} handleInputValues={handleInputValues}/>
+        <hr />
+      </div>
+
+      {eduElements.map(sec => {
+        return <>
+          <div className={`input-section edu-section`}>
+            <h2>Educational Information</h2>
+              {sec}
+            <hr />
+          </div>
+        </>  
+      })}
+
+      <button type="button" className="add-section-btn" onClick={handleAddEduSection}>
+        <PlusCircleIcon key={"plusCircleIcon"}/>
+        Add educational Experience
+      </button>
+
+      <SubmitBtn/>
+    </form>
+  </>
 }
 
 export default Form;
